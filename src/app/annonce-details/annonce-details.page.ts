@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { ListAnnoncesService } from '../list-annonces.service';
+import { ListAnnoncesService } from '../services/list-annonces.service';
 
 @Component({
   selector: 'app-annonce-details',

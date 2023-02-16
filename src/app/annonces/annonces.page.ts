@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ListAnnoncesService } from '../list-annonces.service';
+import { ListAnnoncesService } from '../services/list-annonces.service';
 
 @Component({
   selector: 'app-annonces',

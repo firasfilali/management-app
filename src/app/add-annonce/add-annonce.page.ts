@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ListAnnoncesService } from '../list-annonces.service';
+import { ListAnnoncesService } from '../services/list-annonces.service';
 
 @Component({
   selector: 'app-add-annonce',
