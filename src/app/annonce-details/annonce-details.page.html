@@ -10,40 +10,66 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="selectedAnnonce.category == 'Smartphone'">
   <ion-grid>
-    <ion-list>
-      <ion-item *ngFor="let imageUrl of selectedAnnonce.listOfImage">
-        <img [src]="imageUrl" width="50%">
-      </ion-item>
-    </ion-list>
     <ion-row>
-      <p> Description: {{ selectedAnnonce.description }} </p>
+      <ion-col>
+        <ion-slides pager="true" [options]="">
+          <ion-slide *ngFor="let imageUrl of selectedAnnonce.listOfImage">
+            <ion-img [src]="imageUrl"></ion-img>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-item> <h5>{{ selectedAnnonce.titre }}</h5> 
+       <ion-badge slot="end">{{selectedAnnonce.prix}} TND</ion-badge></ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-list><ion-item><ion-label color="medium">Marque: </ion-label> <ion-label>{{ selectedAnnonce.marque }}</ion-label></ion-item></ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-list><ion-item><ion-label color="medium">Couleur: </ion-label> <ion-label>{{ selectedAnnonce.couleur }}</ion-label></ion-item></ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-list><ion-item><ion-label color="medium">Ram: </ion-label> <ion-label>{{ selectedAnnonce.ram }}</ion-label></ion-item></ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-list><ion-item><ion-label color="medium">Stockage: </ion-label> <ion-label>{{ selectedAnnonce.stockage }}</ion-label></ion-item></ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-list><ion-item><ion-label color="medium">Appareil photo: </ion-label> <ion-label>{{ selectedAnnonce.appareilphoto }}</ion-label></ion-item></ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-list><ion-item><ion-label color="medium">Gouvernement: </ion-label> <ion-label>{{ selectedAnnonce.gouvernement }}</ion-label></ion-item></ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-list><ion-item><ion-label color="medium">Adresse: </ion-label> <ion-label>{{ selectedAnnonce.adresse }}</ion-label></ion-item></ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-list>
+          <ion-item>
+            <ion-label position="stacked" color="medium">Description: </ion-label>
+             <p>{{ selectedAnnonce.description }}</p></ion-item></ion-list>
+      </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-grid>
-    <ion-list [inset]="true">
-      <ion-item> 
-        <ion-label>Titre: {{ selectedAnnonce.titre }}</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Prix: {{ selectedAnnonce.prix }} DT </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Categorie: {{ selectedAnnonce.category }} </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Nom: {{ selectedAnnonce.nom }}</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Telephone: {{ selectedAnnonce.telephone }}</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Localisation: {{ selectedAnnonce.localisation }}</ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-grid>
-
-
 </ion-content>
 

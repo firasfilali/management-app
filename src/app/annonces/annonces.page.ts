@@ -18,4 +18,12 @@ export class AnnoncesPage implements OnInit {
     this.tab = this.listAnnonces.getAllAnnonces();
   }
 
+  getAllAnnonces(){
+    this.tab = this.listAnnonces.getAllAnnonces();
+  }
+
+  getAnnonce(categ){
+    this.tab = this.listAnnonces.getAllAnnonceByCategory(categ);
+  }
+
 }
