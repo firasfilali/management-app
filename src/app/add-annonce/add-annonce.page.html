@@ -3,33 +3,132 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/annonces"></ion-back-button>
     </ion-buttons>
-    <ion-title><h4>Add annonce</h4></ion-title>
+    <ion-title><h4>Ajouter une annonce</h4></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" offset="3">
+        <ion-img src="././assets/images/logo.jpg"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+    <ion-item>
+      <ion-select [(ngModel)]="selectedOption" aria-label="Type annonce" interface="action-sheet" placeholder="Choisir le type de l'annonce" style="vertical-align: middle;">
+        <ion-select-option value="Laptop">Laptop</ion-select-option>
+        <ion-select-option value="Smartphone">Smartphone</ion-select-option>
+        
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-content *ngIf="selectedOption === 'Laptop'">
   <div class="ion-margin">
     <form #f="ngForm">
-      <label for="titre">Title</label>
-      <input ngModel class="form-control" type="text" name="titre" id="titre">
-      <label for="prix">Prix</label>
-      <input ngModel class="form-control" type="text" name="prix" id="prix">
-      <label for="category">Categorie</label>
-      <input ngModel class="form-control" type="text" name="category" id="category">
-      <label for="nomn">Nom</label>
-      <input ngModel class="form-control" type="text" name="nom" id="nom">
-      <label for="telephone">Telephone</label>
-      <input ngModel class="form-control" type="text" name="telephone" id="telephone">
-      <label for="localisation">Localisation</label>
-      <input ngModel class="form-control" type="text" name="localisation" id="localisation">
-      <label for="description">Description</label>
-      <input ngModel class="form-control" type="text" name="description" id="description">
-      <label for="mainImage">Image</label>
-      <input ngModel class="form-control" type="url" name="mainImage" id="mainImage">
-
-
-      <ion-button color="primary" (click)="addNewAnnonce(f.value)">Add</ion-button>
+      <ion-item>
+        <ion-label position="floating">Titre</ion-label>
+        <ion-input #i="ngModel" required ngModel  type="text" name="titre" id="titre" placeholder="Ajouter un titre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" for="adresse">Adresse</ion-label>
+        <ion-input ngModel required type="text" name="adresse" id="adresse" placeholder="Cité olimpique, 1004 Tunis"></ion-input>
+      </ion-item>
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating" for="gouver">Région</ion-label>
+          <ion-select ngModel required aria-label="Région" interface="popover" placeholder="Choisir la région" name="gouver">
+            <ion-select-option value="Tunis">Tunis</ion-select-option>
+            <ion-select-option value="Ariana">Ariana</ion-select-option>
+            <ion-select-option value="Manouba">Manouba</ion-select-option>
+            <ion-select-option value="Ben Arous">Ben Arous</ion-select-option>
+            <ion-select-option value="Nabeul">Nabeul</ion-select-option>
+            <ion-select-option value="Sousse">Sousse</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-item><ion-label position="floating" for="prix">Prix</ion-label>
+        <ion-input ngModel required type="text" name="prix" id="prix" placeholder="100000 TND"></ion-input>
+      </ion-item>
+      <ion-item><ion-label position="floating" for="ram">Ram</ion-label>
+        <ion-input ngModel required type="number" name="ram" id="ram" placeholder="0"></ion-input>
+      </ion-item>
+        <ion-item><ion-label position="floating" for="stockage">Stockage</ion-label>
+        <ion-input ngModel  type="text" name="stockage" id="stockage" placeholder="0"></ion-input>
+      </ion-item>
+        <ion-item><ion-label position="floating" for="description">Description</ion-label>
+        <ion-input  [(ngModel)]="inputValue" type="textarea"  name="description" id="description"  maxlength="500"></ion-input>
+      </ion-item>
+        <ion-item><ion-label position="floating" for="listOfImage">Image by url</ion-label>
+        <ion-input label="Images" labelPlacement="floating" ngModel  type="url" name="listOfImage" id="listOfImage" placeholder="http/www.image.jpg, http/..."></ion-input>
+      </ion-item>
+        <ion-note slot="helper">Enter url(s), use seperator ","</ion-note>
+        <ion-item><ion-label position="stacked" for="imagefile">Image</ion-label>
+      </ion-item>
+      <ion-button size="block" color="primary" (click)="addNewAnnonce(f.value)">Ajouter</ion-button>
     </form>
-  </div>
-
+  </div>    
+</ion-content>
+<ion-content *ngIf="selectedOption === 'Smartphone'">
+  <div class="ion-margin">
+    <form #f="ngForm">
+      <ion-item>
+        <ion-label position="floating">Titre</ion-label>
+        <ion-input #i="ngModel" required ngModel  type="text" name="titre" id="titre" placeholder="Ajouter un titre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" for="adresse">Adresse</ion-label>
+        <ion-input ngModel required type="text" name="adresse" id="adresse" placeholder="Cité olimpique, 1004 Tunis"></ion-input>
+      </ion-item>
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating" for="gouver">Région</ion-label>
+          <ion-select ngModel required aria-label="Région" interface="popover" placeholder="Choisir la région" name="gouver">
+            <ion-select-option value="Tunis">Tunis</ion-select-option>
+            <ion-select-option value="Ariana">Ariana</ion-select-option>
+            <ion-select-option value="Manouba">Manouba</ion-select-option>
+            <ion-select-option value="Ben Arous">Ben Arous</ion-select-option>
+            <ion-select-option value="Nabeul">Nabeul</ion-select-option>
+            <ion-select-option value="Sousse">Sousse</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-item><ion-label position="floating" for="prix">Prix</ion-label>
+        <ion-input ngModel required type="number" name="prix" id="prix" placeholder="100000 TND"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" for="couleur">Couleur</ion-label>
+        
+          <ion-select ngModel aria-label="couleur" name="couleur" placeholder="choisir le couleur">
+          <ion-select-option value="rouge">Rouge</ion-select-option>
+          <ion-select-option value="bleu">Bleu</ion-select-option>
+          <ion-select-option value="vert">Vert</ion-select-option>
+          <ion-select-option value="gris">Gris</ion-select-option>
+          <ion-select-option value="blanc">BLanc</ion-select-option>
+          <ion-select-option value="noir">Noir</ion-select-option>
+          
+        </ion-select>
+      
+      </ion-item>
+      <ion-item><ion-label position="floating" for="ram">Ram</ion-label>
+        <ion-input ngModel required type="number" name="ram" id="ram" placeholder="0"></ion-input>
+      </ion-item>
+        <ion-item><ion-label position="floating" for="stockage">Stockage</ion-label>
+        <ion-input ngModel  type="number" name="stockage" id="stockage" placeholder="0"></ion-input>
+      </ion-item>
+        <ion-item><ion-label position="floating" for="description">Description</ion-label>
+        <ion-input  [(ngModel)]="inputValue" type="textarea"  name="description" id="description"  maxlength="500"></ion-input>
+      </ion-item>
+        <ion-item><ion-label position="floating" for="listOfImage">Image by url</ion-label>
+        <ion-input label="Images" labelPlacement="floating" ngModel  type="url" name="listOfImage" id="listOfImage" placeholder="http/www.image.jpg, http/..."></ion-input>
+      </ion-item>
+        <ion-note slot="helper">Enter url(s), use seperator ","</ion-note>
+      
+      <ion-button size="block" color="primary" (click)="addNewAnnonce(f.value)">Ajouter</ion-button>
+    </form>
+  </div>    
 </ion-content>

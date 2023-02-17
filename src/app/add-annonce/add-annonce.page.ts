@@ -8,6 +8,9 @@ import { ListAnnoncesService } from '../services/list-annonces.service';
   styleUrls: ['./add-annonce.page.scss'],
 })
 export class AddAnnoncePage implements OnInit {
+  selectedOption;
+  inputValue = '';
+  preview: string;
 
   constructor(private annonceSer : ListAnnoncesService,
     private router : Router) { }

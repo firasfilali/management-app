@@ -73,3 +73,66 @@
   </ion-grid>
 </ion-content>
 
+<ion-content *ngIf="selectedAnnonce.category == 'Laptop'">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-slides pager="true" [options]="">
+          <ion-slide *ngFor="let imageUrl of selectedAnnonce.listOfImage">
+            <ion-img [src]="imageUrl"></ion-img>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-item> <h5>{{ selectedAnnonce.titre }}</h5> 
+       <ion-badge slot="end">{{selectedAnnonce.prix}} TND</ion-badge></ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-list><ion-item><ion-label color="medium">Marque: </ion-label> <ion-label>{{ selectedAnnonce.marque }}</ion-label></ion-item></ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-list><ion-item><ion-label color="medium">Couleur: </ion-label> <ion-label>{{ selectedAnnonce.couleur }}</ion-label></ion-item></ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-list><ion-item><ion-label color="medium">Ram: </ion-label> <ion-label>{{ selectedAnnonce.ram }}</ion-label></ion-item></ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-list><ion-item><ion-label color="medium">Stockage: </ion-label> <ion-label>{{ selectedAnnonce.stockage }}</ion-label></ion-item></ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-list><ion-item><ion-label color="medium">Carte graphique: </ion-label> <ion-label>{{ selectedAnnonce.carteGraphique }}</ion-label></ion-item></ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-list><ion-item><ion-label color="medium">Gouvernement: </ion-label> <ion-label>{{ selectedAnnonce.gouvernement }}</ion-label></ion-item></ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-list><ion-item><ion-label color="medium">Adresse: </ion-label> <ion-label>{{ selectedAnnonce.adresse }}</ion-label></ion-item></ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col >
+        <ion-list>
+          <ion-item>
+            <ion-label position="stacked" color="medium">Description: </ion-label>
+             <p>{{ selectedAnnonce.description }}</p></ion-item></ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

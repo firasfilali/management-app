@@ -23,7 +23,11 @@ const routes: Routes = [
   {
     path: 'add-annonce',
     loadChildren: () => import('./add-annonce/add-annonce.module').then( m => m.AddAnnoncePageModule)
+  },  {
+    path: 'mes-annonces',
+    loadChildren: () => import('./mes-annonces/mes-annonces.module').then( m => m.MesAnnoncesPageModule)
   },
+
 
 
 ];

@@ -87,6 +87,10 @@ export class ListAnnoncesService {
     return this.tabAnnonces.find((a) => a.id == id);
   }
 
+  getAnnonceByUser(id){
+    return this.tabAnnonces.filter((a) => a.idUser == id);
+  }
+
   getAllAnnonceByCategory(categ){
     return this.tabAnnonces.filter((a) => a.category == categ);
   }
